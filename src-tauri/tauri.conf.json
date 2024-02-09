@@ -2,7 +2,7 @@
   "build": {
     "beforeDevCommand": "yarn dev",
     "beforeBuildCommand": "yarn build",
-    "devPath": "http://localhost:1423",
+    "devPath": "http://localhost:1420",
     "distDir": "../dist"
   },
   "package": {
@@ -23,7 +23,8 @@
       "identifier": "top.xwsclub",
       "icon": [
         "icons/icon.ico",
-        "icons/favicon.png"
+        "icons/favicon.png",
+        "icons/logo.png"
       ],
       "resources": [
         "DnsList.json"
