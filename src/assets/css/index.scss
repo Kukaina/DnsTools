@@ -1,34 +1,14 @@
 @import './variable.scss';
 @import './reset.scss';
 
-/* 整个滚动条 */
-::-webkit-scrollbar {
-    width: 3px;
-    height: 3px;
+/* 设置全局字体为得意黑 */
+body, h1, h2, p, li, span, div, input, button, textarea {
+    font-family: 'Harmony', sans-serif; 
   }
+  
 
-  /* 滚动条有滑块的轨道部分 */
-  ::-webkit-scrollbar-track-piece {
-    background-color: transparent;
-    border-radius: 5px;
-  }
 
-  /* 滚动条滑块(竖向:vertical 横向:horizontal) */
-  ::-webkit-scrollbar-thumb {
-    cursor: pointer;
-    background-color:#f2f2f2;
-    border-radius: 5px;
+  @font-face {
+    font-family: 'Harmony';
+    src: url('../fonts/HarmonyOS_Sans_Medium.ttf') format('truetype');
   }
-
-  /* 滚动条滑块hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #999999;
-  }
-
-  /* 同时有垂直和水平滚动条时交汇的部分 */
-  ::-webkit-scrollbar-corner {
-    display: block;    /* 修复交汇时出现的白块 */
-  }
-.n-button{
-  width: 100%;
-}

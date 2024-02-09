@@ -2,8 +2,8 @@
 <template>
 <n-layout has-sider>
     <n-layout-sider bordered  >
-        <span class="Logo_text">DnsTools</span>
-        <n-menu :options="Menuoptions" :on-update:value="func"/>
+        <Logo></Logo>
+        <n-menu :options="Menuoptions" :on-update:value="func" />
     </n-layout-sider>
     <n-layout-content bordered>
         <div class="content">
@@ -11,17 +11,20 @@
         </div>
     </n-layout-content>
 </n-layout>
+
 </template>
 
 <script setup>
 window.addEventListener('contextmenu', event => event.preventDefault());
+import { NLayout,NMenu,NLayoutContent,NLayoutSider } from "naive-ui";
 import{InformationCircle,SpeedometerSharp,SettingsSharp,WifiSharp}from "@vicons/ionicons5"
 import { NIcon } from 'naive-ui'
+import Logo from "./components/logo/index.vue"
 import {h} from "vue"
 import { useRouter } from "vue-router";
 const Menuoptions=[
     {label:"Dns测速",key:"/",icon:renderIcon(SpeedometerSharp)},
-    {label:"污染检测",key:"/hijack",icon:renderIcon(WifiSharp)},
+    {label:"污染检测",key:"/pollute",icon:renderIcon(WifiSharp)},
     {label:"关于",key:"/about",icon:renderIcon(InformationCircle)},
     {label:"设置",key:"/settings",icon:renderIcon(SettingsSharp)},
 ]
@@ -39,14 +42,6 @@ function renderIcon (icon) {
     .n-menu-item{
         width: 10px;
     }
-}
-.Logo_text{
-    display: block;
-    margin-top: 35%;
-    margin-left: 12%;
-    margin-bottom: 10%;
-    font-size: 48px;
-    font-weight: bold;
 }
 .content{
     margin-left: 2%;

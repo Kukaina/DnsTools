@@ -11,6 +11,7 @@
 </template>
 
 <script setup>
+import { NFlex,NCard,NInput,NButton } from 'naive-ui';
 import { ref } from 'vue';
 import {invoke} from '@tauri-apps/api'
 const text=ref()
