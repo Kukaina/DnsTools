@@ -34,6 +34,15 @@
     "security": {
       "csp": null
     },
+    "updater": {
+      "active": true,
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEFCMDEyNDFEQUQ2QjIxNQpSV1FWc3RiYVFSS3dDamRwaVZnK2NvL3JKQ1UxM2RrNGNxNEVuVFlGRG5hZkRmR3ZRSUltZHFGVAo=",
+      "windows": {
+        "installMode": "passive",
+        "installerArgs": []
+      }
+    },
     "windows": [
       {
         "fullscreen": false,
