@@ -1,5 +1,5 @@
 import { createRouter ,createWebHashHistory,createWebHistory} from "vue-router"
-import hijack from "@/components/hijack/index.vue"
+import hijack from "@/components/pollute/index.vue"
 import speed from "@/components/speed/index.vue"
 import about from "@/components/about/index.vue"
 import settings from "@/components/settings/index.vue"
@@ -8,7 +8,7 @@ import settings from "@/components/settings/index.vue"
 // 我们后面再讨论嵌套路由。
 const routes = [
   // { path: '/', component: overview,name:"overview" },
-  { path: '/hijack', component: hijack ,name:"hijack"},
+  { path: '/pollute', component: hijack ,name:"pollute"},
   {path:'/',component:speed,name:"speed"},
   {path:'/about',component:about,name:"about"},
   {path:'/settings',component:settings,name:"settings"}

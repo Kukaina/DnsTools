@@ -14,6 +14,5 @@ pub async fn pings(address: String) -> Result<i64, String> {
 
     // 将 Duration 转换为毫秒
     let duration_ms = result.1.as_secs_f64() * 1000.0;
-    println!("延迟是{}",duration_ms as i64);
     Ok(duration_ms as i64)
 }

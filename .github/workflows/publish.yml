@@ -1,4 +1,6 @@
-name: "publish"
+name: 'publish'
+
+# This will trigger the action on each push to the `release` branch.
 on:
   push:
     branches:
@@ -6,35 +8,49 @@ on:
 
 jobs:
   publish-tauri:
+    permissions:
+      contents: write
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-latest, windows-latest]
+        platform: [macos-latest, ubuntu-20.04, windows-latest]
 
     runs-on: ${{ matrix.platform }}
     steps:
-    - uses: actions/checkout@v2
-    - name: setup node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 18
-    - name: install Rust stable
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-    - name: install dependencies (ubuntu only)
-      if: matrix.platform == 'ubuntu-latest'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
-    - name: install app dependencies and build it
-      run: yarn && yarn build
-    - uses: tauri-apps/tauri-action@v0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tagName: v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
-        releaseName: "v__VERSION__"
-        releaseBody: "See the assets to download this version and install."
-        releaseDraft: true  # 不需要 draft 的可以改成 false
-        prerelease: false
+      - uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-20.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+
+      - name: install frontend dependencies
+        run: yarn install # change this to npm or pnpm depending on which one you use
+        id: install_frontend_dependencies
+      - name: Clear Yarn cache on failure
+        if: steps.install_frontend_dependencies=='failure'
+        run: |
+          yarn cache clean
+          yarn install
+
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }} # 密钥，需要提前配置在 Github Secrets中
+          TAURI_KEY_PASSWORD: "zts090215"
+        with:
+          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+          releaseName: 'App v__VERSION__'
+          releaseBody: '发现新版本'
+          releaseDraft: false
+          prerelease: false
