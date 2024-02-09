@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "DnsTools",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -40,6 +40,7 @@
     "updater": {
       "active": true,
       "dialog": true,
+      "endpoints": ["https://update.dnstools.xwsclub.top/update.json"],
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEFCMDEyNDFEQUQ2QjIxNQpSV1FWc3RiYVFSS3dDamRwaVZnK2NvL3JKQ1UxM2RrNGNxNEVuVFlGRG5hZkRmR3ZRSUltZHFGVAo=",
       "windows": {
         "installMode": "passive",
