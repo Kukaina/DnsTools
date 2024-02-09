@@ -1,0 +1,46 @@
+{
+  "build": {
+    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "yarn build",
+    "devPath": "http://localhost:1423",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "DnsTools",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "top.xwsclub",
+      "icon": [
+        "icons/icon.ico",
+        "icons/favicon.png"
+      ],
+      "resources": [
+        "DnsList.json"
+      ]
+    },
+
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "dnstools",
+        "width": 1000,
+        "height": 600
+      }
+    ]
+  }
+}
