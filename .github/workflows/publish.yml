@@ -7,9 +7,9 @@ on:
 jobs:
   publish-tauri:
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-latest, windows-latest]
+        platform: [macos-latest, windows-latest]
 
     runs-on: ${{ matrix.platform }}
     steps:
@@ -17,7 +17,7 @@ jobs:
     - name: setup node
       uses: actions/setup-node@v1
       with:
-        node-version: 18
+        node-version: 20
     - name: install Rust stable
       uses: actions-rs/toolchain@v1
       with:
