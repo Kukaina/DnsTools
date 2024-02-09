@@ -35,6 +35,13 @@ jobs:
 
       - name: install frontend dependencies
         run: yarn install # change this to npm or pnpm depending on which one you use
+        id: install_frontend_dependencies
+      - name: Clear Yarn cache on failure
+        if: steps.install_frontend_dependencies=='failure'
+        run: |
+          yarn cache clean
+          yarn install
+
 
       - uses: tauri-apps/tauri-action@v0
         env:
