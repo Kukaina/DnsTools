@@ -20,6 +20,8 @@
                     Email: 2358755283@qq.com
                 </n-card>
                 <n-card title="更新日志" id="log">
+                    <h2>V1.0.3.240209_beta</h2>
+                    <span>修复头像无法显示的Bug</span>
                     <h2>V1.0.2.240209_beta</h2>
                     <span>优化表格显示，调整字体</span>
                     <h2>V1.0.1.240209_beta</h2>
@@ -40,7 +42,7 @@
 </template>
 
 <script setup>
-import { NFlex,NCard,NDivider } from 'naive-ui';
+import { NFlex,NCard,NDivider,NAvatar } from 'naive-ui';
 </script>
 
 <style lang="scss" scoped>
