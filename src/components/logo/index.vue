@@ -1,4 +1,3 @@
-<!--  -->
 <template>
     <div class="logo">
         <img src="../../../src-tauri/icons/128x128.png">

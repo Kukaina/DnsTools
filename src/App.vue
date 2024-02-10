@@ -46,6 +46,7 @@ function renderIcon (icon) {
 .content{
     margin-left: 2%;
     margin-right: 2%;
+    margin-top: 2%;
 }
 
 </style>

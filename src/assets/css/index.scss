@@ -5,10 +5,11 @@
 body, h1, h2, p, li, span, div, input, button, textarea {
     font-family: 'Harmony', sans-serif; 
   }
-  
-
-
   @font-face {
     font-family: 'Harmony';
     src: url('../fonts/HarmonyOS_Sans_Medium.ttf') format('truetype');
   }
+
+.n-card{
+  border-radius: 15px !important;
+}

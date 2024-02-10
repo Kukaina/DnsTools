@@ -49,8 +49,8 @@ jobs:
           TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }} # 密钥，需要提前配置在 Github Secrets中
           TAURI_KEY_PASSWORD: "zts090215"
         with:
-          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
-          releaseName: 'App v__VERSION__'
-          releaseBody: '发现新版本'
+          tagName: DnsTools-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+          releaseName: 'DnsTools v__VERSION__'
+          releaseBody: 'DnsTools v__VERSION__ 发布'
           releaseDraft: false
           prerelease: false
