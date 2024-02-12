@@ -15,10 +15,10 @@
                 <n-card title="开发人员" id="kaifa">
                     <n-avatar round size="large" src="https://pic.imgdb.cn/item/65bdaf56871b83018a17cd21.webp" />
                 </n-card>
-                <n-card title="反馈方式" id="fankui">
+                <!-- <n-card title="反馈方式" id="fankui">
                     QQ: 2358755283<br>
                     Email: 2358755283@qq.com
-                </n-card>
+                </n-card> -->
                 <n-card title="更新日志" id="log">
                     <h2>V1.0.3.240209_beta</h2>
                     <span>修复头像无法显示的Bug</span>
