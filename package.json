@@ -13,6 +13,8 @@
     "@tauri-apps/api": "^1.5.2",
     "@vicons/ionicons5": "^0.12.0",
     "path": "^0.12.7",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
     "unplugin-vue-components": "^0.26.0",
     "vue": "^3.3.4",
     "vue-router": "4"

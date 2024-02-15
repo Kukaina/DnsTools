@@ -7,10 +7,18 @@
   },
   "package": {
     "productName": "DnsTools",
-    "version": "1.0.3"
+    "version": "1.1.0"
   },
   "tauri": {
     "allowlist": {
+      "dialog": {
+        "all": false,
+        "ask": false,
+        "confirm": false,
+        "message": false,
+        "open": true,
+        "save": false
+      },
       "all": false,
       "shell": {
         "all": false,
@@ -52,8 +60,8 @@
         "fullscreen": false,
         "resizable": true,
         "title": "DnsTools",
-        "width": 1000,
-        "height": 600
+        "width": 1025,
+        "height": 665
       }
     ]
   }
