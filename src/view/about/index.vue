@@ -28,7 +28,7 @@
       />
     </n-card>
     <n-card title="开源及反馈">
-      GIthub开源地址:https://github.com/Kukaina/DnsTools/
+      GIthub开源地址:https://github.com/Kukaina/DnsTools/<br>
       反馈地址:https://github.com/Kukaina/DnsTools/issues/new
     </n-card>
     <n-card title="更新日志" id="log">
