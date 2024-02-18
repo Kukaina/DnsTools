@@ -56,7 +56,8 @@
         "icons/icon.png"
       ],
       "resources": [
-        "DnsList.json"
+        "DnsList.json",
+        "DnsList.min.json"
       ]
     },
 
