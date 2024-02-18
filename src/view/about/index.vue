@@ -16,7 +16,7 @@
       框架的安全模型确保了前端代码在沙箱环境中运行，增强了应用程序的安全性。<br />
       跨平台兼容性：Tauri 使得 Dnstools 能够在不同的操作系统上运行，包括
       Windows、macOS 和 Linux，提供了良好的跨平台体验。<br />
-      开源：DnsTools正式版将开源，允许其他开发者和技术爱好者贡献代码，共同改进和增强工具的功能。<br />
+      开源：DnsTools正式版完全开源，允许其他开发者和技术爱好者贡献代码，共同改进和增强工具的功能。<br />
       Dnstools
       通过这些特点，为网络用户和专业人士提供了一个实用的工具，能够帮助他们在保持网络性能的同时，确保他们的网络连接不受不必要的干扰。
     </n-card>
@@ -27,11 +27,14 @@
         src="https://pic.imgdb.cn/item/65bdaf56871b83018a17cd21.webp"
       />
     </n-card>
-    <!-- <n-card title="反馈方式" id="fankui">
-                    QQ: 2358755283<br>
-                    Email: 2358755283@qq.com
-                </n-card> -->
+    <n-card title="开源及反馈">
+      GIthub开源地址:https://github.com/Kukaina/DnsTools/
+      反馈地址:https://github.com/Kukaina/DnsTools/issues/new
+    </n-card>
     <n-card title="更新日志" id="log">
+      <h2>V1.2.0_240218</h2>
+      <span>新增精简版DNS列表，修复切换页面时测速消失的问题，支持导出为CSV，新增GIthub链接,新增右键复制DNS地址功能</span>
+      <n-divider />
       <h2>V1.1.0_240215_beta</h2>
       <span>新增设置界面，优化页面结构,新增错误检测</span>
       <h2>V1.0.3.240209_beta</h2>

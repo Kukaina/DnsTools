@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "DnsTools",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "tauri": {
     "allowlist": {
@@ -23,6 +23,24 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "fs": {
+        "all": true,
+        "copyFile": true,
+        "createDir": true,
+        "exists": true,
+        "readDir": true,
+        "readFile": true,
+        "removeDir": true,
+        "removeFile": true,
+        "renameFile": true,
+        "scope": [],
+        "writeFile": true
+      },
+      "http": {
+        "all": true,
+        "request": true,
+        "scope": ["https://update.dnstools.xwsclub.top/*"]
       }
     },
     "bundle": {

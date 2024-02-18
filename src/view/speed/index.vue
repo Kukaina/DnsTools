@@ -2,72 +2,62 @@
   <div>
     <n-flex>
       <n-card title="介绍">
-        这里你可以对常见的一百多个DNS进行测速，以便你选择出速度最快的DNS，提高上网体验，但需要注意的是，部分DNS有被劫持的可能，因此我们还有劫持检测功能，可以在替换完DNS后检测DNS是否被劫持,如果表格高度出现问题请按F5进行刷新
+        这里你可以对常见的一百多个DNS进行测速，以便你选择出速度最快的DNS，提高上网体验，但需要注意的是，部分DNS有被劫持的可能，因此我们还有劫持检测功能，可以在替换完DNS后检测DNS是否被劫持,如果表格高度出现问题请按F5进行刷新，由于某些DNS服务器禁ping，所以可能会导致测试失败，目前正在寻找解决方案(DNS查询会导致缓存问题)
       </n-card>
       <n-button
         type="primary"
-        @click="startTest(data.list)"
-        :disabled="flag != 0"
+        @click="Start"
+        :disabled="speedstore.teststatus != 0"
       >
-        {{ buttonText }}
+        {{ speedstore.buttonText }}
       </n-button>
+      <n-button type="primary" @click="exportSorterAndFilterCsv" :disabled="speedstore.teststatus !=0">导出CSV</n-button>
       <!-- 处理异步组件 -->
       <Suspense>
         <template #default>
-          <n-data-table
+            <n-data-table
             :columns="columns"
-            :data="data.list"
+            :data="speedstore.data.list"
             :max-height="tableHeight"
+            ref="tableRef"
+            :row-props="rowProps"
           />
         </template>
         <template #fallback> loading... </template>
       </Suspense>
+      <n-dropdown
+  v-model:show="showDropdown"
+  :x="dropdownCoords.x"
+  :y="dropdownCoords.y"
+  :options="dropdownOptions"
+  @select="handleDropdownSelect"
+/>
     </n-flex>
   </div>
 </template>
 
 <script setup>
-import { NFlex, NCard, NButton, NDataTable,useMessage } from "naive-ui";
-import { onBeforeMount, ref,onMounted } from "vue";
-import { invoke } from "@tauri-apps/api";
+import { NFlex, NCard, NButton, NDataTable,NDropdown,useMessage } from "naive-ui";
+import { onBeforeMount, ref,reactive } from "vue";
+import {useSpeedStore}from "../../store/speed"
 import { useSettingsStore } from "../../store/settings";
+
+const showDropdown = ref(false);
+const dropdownCoords = reactive({ x: 0, y: 0 });
+const selectedRowData = ref(null);
 const settings=useSettingsStore()
-const tableHeight = ref(window.innerHeight - 280);
+const speedstore=useSpeedStore()
+const tableHeight = ref(window.innerHeight - 300);
 const columns = [
   { title: "DNS地址", key: "IP" },
   { title: "DNS名称", key: "name" },
   { title: "DNS延迟", key: "delay" },
 ];
-let data = ref([]);
-let flag = ref(0);
-let buttonText = ref("开始测速！！！");
-onBeforeMount(async () => {
-  try {
-    data.value = await invoke("get_records", {
-      params: { path: settings.filePath },
-    });
-  } catch (error) {
-    useMessage().error("列表初始化出错，请检查文件设置 "+error)
-  }
+onBeforeMount(()=>{
+speedstore.iniData()
 });
-const startTest = async (list) => {
-  flag.value = 1;
-  buttonText.value = "正在测速中...";
-  for (let i of list) {
-    try {
-      const response = await invoke("pings", { address: i.IP });
-      i.delay = response + " ms";
-    } catch (err) {
-      i.delay = "请求超时";
-      continue;
-    }
-  }
-  flag.value = 3;
-  buttonText.value = "正在排序中...";
-  sortByDelay(list);
-  flag.value = 0;
-  buttonText.value = "已完成排序";
-};
+
+
 
 function sortByDelay(list) {
   // 自定义排序函数，确保字符排在数字后面
@@ -96,6 +86,57 @@ function sortByDelay(list) {
   return list.sort(compareDelay);
 }
 
+const tableRef=ref();
+const exportSorterAndFilterCsv = () => tableRef.value?.downloadCsv({
+      fileName: "测速结果",
+      keepOriginalData: false
+    });
+const Start=()=>{
+  speedstore.startTest();
+}
+//实时排序
+speedstore.$subscribe((mutation,state)=>{
+  sortByDelay(speedstore.data.list);
+})
+//监听刷新事件，防止出现No data
+window.addEventListener('beforeunload',(event)=>{
+  // 清除sessionStorage
+  sessionStorage.clear();
+});
+
+function onRowRightClick(event, rowData) {
+  event.preventDefault();
+  showDropdown.value = true;
+  dropdownCoords.x = event.clientX;
+  dropdownCoords.y = event.clientY;
+  selectedRowData.value = rowData;
+}
+
+
+const rowProps = (rowData) => {
+  return {
+    onContextmenu: (event) => onRowRightClick(event, rowData)
+  };
+};
+
+const dropdownOptions = [
+{ label: '复制DNS地址', key: 'copyDelay' },
+];
+
+function handleDropdownSelect(key, option) {
+  if (key === 'copyDelay' && selectedRowData.value) {
+    const delayToCopy = selectedRowData.value.IP;
+    copyToClipboard(delayToCopy);
+  }
+  showDropdown.value = false;
+}
+const copyToClipboard = (text) => {
+  navigator.clipboard.writeText(text).then(() => {
+    console.log('Text copied to clipboard');
+  }).catch(err => {
+    console.error('Failed to copy text to clipboard', err);
+  });
+};
 </script>
 
 <style lang="scss" scoped></style>
