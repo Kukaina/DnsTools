@@ -1,4 +1,3 @@
-<!--  -->
 <template>
     <div class="logo">
         <img src="../../../src-tauri/icons/128x128.png">
@@ -11,15 +10,17 @@
 </script>
 
 <style lang="scss" scoped>
-.logo{
+.logo {
     margin-top: 30%;
     margin-left: 22%;
     margin-bottom: 10%;
-    img{
+
+    img {
         display: block;
         border-radius: 15px;
     }
-    .Logo_text{
+
+    .Logo_text {
         font-size: 32px;
         margin-left: -2%;
         font-weight: bold;

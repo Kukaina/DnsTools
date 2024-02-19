@@ -7,14 +7,40 @@
   },
   "package": {
     "productName": "DnsTools",
-    "version": "1.0.3"
+    "version": "1.2.1"
   },
   "tauri": {
     "allowlist": {
+      "dialog": {
+        "all": false,
+        "ask": false,
+        "confirm": false,
+        "message": false,
+        "open": true,
+        "save": false
+      },
       "all": false,
       "shell": {
         "all": false,
         "open": true
+      },
+      "fs": {
+        "all": true,
+        "copyFile": true,
+        "createDir": true,
+        "exists": true,
+        "readDir": true,
+        "readFile": true,
+        "removeDir": true,
+        "removeFile": true,
+        "renameFile": true,
+        "scope": [],
+        "writeFile": true
+      },
+      "http": {
+        "all": true,
+        "request": true,
+        "scope": ["https://update.dnstools.xwsclub.top/*"]
       }
     },
     "bundle": {
@@ -30,7 +56,9 @@
         "icons/icon.png"
       ],
       "resources": [
-        "DnsList.json"
+        "DnsList.json",
+        "DnsList.min.json",
+        "DnsList.V6.json"
       ]
     },
 
@@ -52,8 +80,8 @@
         "fullscreen": false,
         "resizable": true,
         "title": "DnsTools",
-        "width": 1000,
-        "height": 600
+        "width": 1025,
+        "height": 665
       }
     ]
   }
