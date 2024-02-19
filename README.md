@@ -32,5 +32,5 @@ yarn tauri build
 ```
 然后就可以在`.\src-tauri\target\release\bundle`下面找到编译产物
 # Star
-[![Stargazers over time](https://starchart.cc/Kukaina/DnsTools.svg?variant=light)](https://starchart.cc/Kukania/Dnstools)
+![Star趋势图](https://starchart.cc/Kukaina/DnsTools.svg?variant=light)
 
