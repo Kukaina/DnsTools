@@ -32,6 +32,6 @@ pub struct CmdParams {
 
 // 定义一个 Tauri 命令
 #[command]
-pub fn get_records(params: CmdParams) -> Result<RecordList, tauri::Error> {
+pub async fn get_records(params: CmdParams) -> Result<RecordList, tauri::Error> {
     read_records_from_json(params.path).map_err(|e| e.into())
 }

@@ -28,12 +28,20 @@
       />
     </n-card>
     <n-card title="开源及反馈">
-      GIthub开源地址:https://github.com/Kukaina/DnsTools/<br>
-      反馈地址:https://github.com/Kukaina/DnsTools/issues/new
+      <p>GIthub开源地址:<a  target="_blank" href="https://github.com/Kukaina/DnsTools/"> https://github.com/Kukaina/DnsTools/</a></p>
+      <br />
+      <p>反馈地址:<a href="https://github.com/Kukaina/DnsTools/issues/new" target="_blank"> https://github.com/Kukaina/DnsTools/issues/new</a></p>
     </n-card>
     <n-card title="更新日志" id="log">
+      <h2>V1.2.1_240219</h2>
+      <span
+        >新增IPV6 DNS列表，增加消息提醒，优化污染检测功能</span
+      >
+      <n-divider />
       <h2>V1.2.0_240218</h2>
-      <span>新增精简版DNS列表，修复切换页面时测速消失的问题，支持导出为CSV，新增GIthub链接,新增右键复制DNS地址功能</span>
+      <span
+        >新增精简版DNS列表，修复切换页面时测速消失的问题，支持导出为CSV，新增GIthub链接,新增右键复制DNS地址功能</span
+      >
       <n-divider />
       <h2>V1.1.0_240215_beta</h2>
       <span>新增设置界面，优化页面结构,新增错误检测</span>
@@ -62,7 +70,7 @@
 </template>
 
 <script setup>
-import { NFlex, NCard, NDivider, NAvatar } from "naive-ui";
+import { NFlex, NCard, NDivider, NAvatar} from "naive-ui";
 </script>
 
 <style lang="scss" scoped>
@@ -77,5 +85,19 @@ import { NFlex, NCard, NDivider, NAvatar } from "naive-ui";
 h2 {
   font-weight: bold;
   margin: 10px 10px;
+}
+a{
+  text-decoration: none;
+  color: black; // 默认文字颜色
+  border-radius: 5px;
+  background-color: transparent; // 默认背景透明
+  transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease; // 过渡效果
+  &:hover, &:focus {
+    color: white; // 鼠标悬停和聚焦时文字颜色变为白色
+    background-color: rgb(66, 90, 239); // 鼠标悬停和聚焦时背景颜色变化
+    border-radius: 5px; // 圆角
+    padding: 2px 8px; // 文字的上下左右内边距
+    text-decoration: none; // 移除文本下划线
+  }
 }
 </style>

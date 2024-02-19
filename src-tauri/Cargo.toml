@@ -18,7 +18,8 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 surge-ping = "0.8.0"
 tokio = { version = "1.21.2", features = ["full"] }
-trust-dns-resolver = "0.20"
+trust-dns-resolver = { version = "0.20.4", features = ["tokio-runtime"] }
+
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem

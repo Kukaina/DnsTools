@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "DnsTools",
-    "version": "1.2.0"
+    "version": "1.2.1"
   },
   "tauri": {
     "allowlist": {
@@ -57,7 +57,8 @@
       ],
       "resources": [
         "DnsList.json",
-        "DnsList.min.json"
+        "DnsList.min.json",
+        "DnsList.V6.json"
       ]
     },
 

@@ -8,7 +8,7 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             ping::pings,
             getjsonlist::get_records,
-            pollute::check_dns_pollution
+            pollute::check_dns_pollution,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

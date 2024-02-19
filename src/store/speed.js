@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { invoke } from "@tauri-apps/api";
 import { useSettingsStore } from './settings';
+import { useToast } from 'vue-toast-notification';
 export const useSpeedStore = defineStore('speed', {
   state: () => ({
     data:[],
@@ -19,7 +20,11 @@ export const useSpeedStore = defineStore('speed', {
                 });
                 sessionStorage.setItem("Ini",1)
               } catch (error) {
-                console.log(error);
+                useToast().open({
+                  message:"初始化出错："+error,
+                  type:"error",
+                  position:"top-right"
+                })
               }
         }
     },
@@ -34,7 +39,6 @@ export const useSpeedStore = defineStore('speed', {
       
           } catch (err) {
             i.delay = "请求超时";
-            console.log({"当前索引:":i,"错误:":err});
             continue;
           }
         }
