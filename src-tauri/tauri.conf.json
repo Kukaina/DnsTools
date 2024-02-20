@@ -45,7 +45,7 @@
     },
     "bundle": {
       "active": true,
-      "targets": "all",
+      "targets": ["nsis","app","appimage","deb","dmg","updater"],
       "identifier": "top.xwsclub",
       "icon": [
         "icons/32x32.png",
