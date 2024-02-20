@@ -45,7 +45,7 @@
     },
     "bundle": {
       "active": true,
-      "targets": ["nsis","app","appimage","deb","dmg","updater"],
+      "targets": "all",
       "identifier": "top.xwsclub",
       "icon": [
         "icons/32x32.png",
@@ -58,7 +58,7 @@
       "resources": [
         "DnsList.json",
         "DnsList.min.json",
-        "DnsList.V6.json"
+        "DnsList.v6.json"
       ]
     },
 
