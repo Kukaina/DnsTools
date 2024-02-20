@@ -4,7 +4,8 @@ import { ref } from 'vue'
 export const useSettingsStore = defineStore('settings', {
     state: () => ({
         filePath: ref("./DnsList.json"),
-        firstwarn:false
+        firstwarn:false,
+        zoom:1
     }),
     persist:true
 
