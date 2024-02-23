@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "DnsTools",
-    "version": "1.2.2"
+    "version": "1.2.3"
   },
   "tauri": {
     "allowlist": {
@@ -55,11 +55,7 @@
         "icons/icon.ico",
         "icons/icon.png"
       ],
-      "resources": [
-        "DnsList.json",
-        "DnsList.min.json",
-        "DnsList.v6.json"
-      ]
+      "resources": ["DnsList.json", "DnsList.min.json", "DnsList.v6.json"]
     },
 
     "security": {
@@ -81,7 +77,8 @@
         "resizable": true,
         "title": "DnsTools",
         "width": 1025,
-        "height": 665
+        "height": 665,
+        "transparent": true
       }
     ]
   }

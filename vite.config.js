@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 import { join } from "path";
 
 // https://vitejs.dev/config/
@@ -7,7 +7,7 @@ export default defineConfig(async () => ({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': join(__dirname, "src"), // 或者 '@: /src'，取决于你的项目结构
+      "@": join(__dirname, "/src"), // 或者 '@: /src'，取决于你的项目结构
     },
   },
 
@@ -27,8 +27,8 @@ export default defineConfig(async () => ({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "@/assets/css/index.scss";'
-      }
-    }
-  }
+        additionalData: '@import "@/assets/css/index.scss";',
+      },
+    },
+  },
 }));
