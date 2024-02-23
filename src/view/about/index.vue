@@ -17,7 +17,7 @@
       开源：DnsTools正式版完全开源，允许其他开发者和技术爱好者贡献代码，共同改进和增强工具的功能。<br />
       Dnstools
       通过这些特点，为网络用户和专业人士提供了一个实用的工具，能够帮助他们在保持网络性能的同时，确保他们的网络连接不受不必要的干扰。<br />
-      <b>我才不会告诉你这些事GPT写到呢..才..才不会呢</b>
+      <b>我才不会告诉你这些介绍是GPT写到呢..才..才不会呢</b>
     </n-card>
     <n-card title="开发人员" id="kaifa">
       <n-avatar round size="large" src="https://pic.imgdb.cn/item/65bdaf56871b83018a17cd21.webp" />
